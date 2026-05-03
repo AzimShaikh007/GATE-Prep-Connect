@@ -1,0 +1,95 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="GATE Prep Connect Use Case">
+    <mxGraphModel dx="1000" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Actors -->
+        <mxCell id="student" value="Student" style="shape=umlActor;" vertex="1" parent="1">
+          <mxGeometry x="50" y="150" width="40" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="senior" value="Senior" style="shape=umlActor;" vertex="1" parent="1">
+          <mxGeometry x="50" y="350" width="40" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- System Boundary -->
+        <mxCell id="system" value="GATE Prep Connect" style="shape=rectangle;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="200" y="50" width="600" height="500" as="geometry"/>
+        </mxCell>
+
+        <!-- Use Cases -->
+        <mxCell id="login" value="Sign Up / Login" style="ellipse;" vertex="1" parent="system">
+          <mxGeometry x="200" y="50" width="180" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="ask" value="Ask Subject-Specific Doubt" style="ellipse;" vertex="1" parent="system">
+          <mxGeometry x="50" y="120" width="220" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="viewOwn" value="View Own Doubts & Answers" style="ellipse;" vertex="1" parent="system">
+          <mxGeometry x="50" y="180" width="220" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="pending" value="View Pending Doubts" style="ellipse;" vertex="1" parent="system">
+          <mxGeometry x="350" y="120" width="200" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="answer" value="Answer Doubts & Mark Resolved" style="ellipse;" vertex="1" parent="system">
+          <mxGeometry x="350" y="180" width="240" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="upload" value="Upload Study Materials" style="ellipse;" vertex="1" parent="system">
+          <mxGeometry x="350" y="250" width="200" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="browse" value="Browse & Access Study Materials" style="ellipse;" vertex="1" parent="system">
+          <mxGeometry x="200" y="320" width="260" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="analytics" value="View Platform Analytics" style="ellipse;" vertex="1" parent="system">
+          <mxGeometry x="200" y="390" width="220" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Connections: Student -->
+        <mxCell id="s1" edge="1" parent="1" source="student" target="login">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2" edge="1" parent="1" source="student" target="ask">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3" edge="1" parent="1" source="student" target="viewOwn">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="s4" edge="1" parent="1" source="student" target="browse">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="s5" edge="1" parent="1" source="student" target="analytics">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Connections: Senior -->
+        <mxCell id="sr1" edge="1" parent="1" source="senior" target="login">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="sr2" edge="1" parent="1" source="senior" target="pending">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="sr3" edge="1" parent="1" source="senior" target="answer">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="sr4" edge="1" parent="1" source="senior" target="upload">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="sr5" edge="1" parent="1" source="senior" target="browse">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="sr6" edge="1" parent="1" source="senior" target="analytics">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

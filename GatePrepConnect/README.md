@@ -1,4 +1,4 @@
-# GATE Prep Connect 🎓
+w# GATE Prep Connect 🎓
 
 > An MVC-based Client-Server Web Application built for Peer Mentorship
 
