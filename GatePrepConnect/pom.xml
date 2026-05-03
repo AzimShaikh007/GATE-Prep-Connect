@@ -59,6 +59,12 @@
             <version>3.0.1</version>
         </dependency>
 
+        <!-- Spring Mail (Phase 3 – Email Notifications) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>

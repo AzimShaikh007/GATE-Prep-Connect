@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c"   uri="jakarta.tags.core" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -88,9 +89,29 @@
                         <h4>${material.title}</h4>
                         <span class="subject-tag">${material.subject}</span>
                         <p class="desc">${material.description}</p>
+
+                        <%-- Phase 3: star display --%>
+                        <div style="display:flex;align-items:center;gap:.6rem;margin:.5rem 0;">
+                            <span style="color:#f59e0b;font-size:1rem;letter-spacing:2px;">
+                                <c:forEach begin="1" end="5" var="i">
+                                    <c:choose>
+                                        <c:when test="${i <= avgRatings[material.id]}">★</c:when>
+                                        <c:otherwise>☆</c:otherwise>
+                                    </c:choose>
+                                </c:forEach>
+                            </span>
+                            <span style="color:#94a3b8;font-size:.78rem;">
+                                <fmt:formatNumber value="${avgRatings[material.id]}" maxFractionDigits="1"/>
+                                (${ratingCounts[material.id]})
+                            </span>
+                        </div>
+
                         <div class="material-footer">
                             <span class="subtext">By ${material.uploadedBy.name}</span>
-                            <a href="${material.downloadLink}" target="_blank" class="btn btn-sm btn-secondary">Download / View</a>
+                            <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
+                                <a href="${material.downloadLink}" target="_blank" class="btn btn-sm btn-secondary">Download / View</a>
+                                <a href="/material-reviews/${material.id}" class="btn btn-sm btn-outline">⭐ Rate &amp; Reviews</a>
+                            </div>
                         </div>
                     </div>
                 </div>

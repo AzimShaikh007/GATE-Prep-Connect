@@ -16,10 +16,16 @@ public class User {
     
     private String password;
     
-    // "STUDENT" or "SENIOR"
+    // "STUDENT", "SENIOR", or "ADMIN"
     private String role;
 
     private Integer reputation = 0;
+
+    /** Phase 3: Admin can ban a user to block login */
+    private boolean banned = false;
+
+    /** Optional short bio shown on profile */
+    private String bio;
 
     public User() {}
 
@@ -40,4 +46,23 @@ public class User {
 
     public String getRole() { return role; }
     public void setRole(String role) { this.role = role; }
+
+    public boolean isBanned() { return banned; }
+    public void setBanned(boolean banned) { this.banned = banned; }
+
+    public String getBio() { return bio; }
+    public void setBio(String bio) { this.bio = bio; }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+        User user = (User) o;
+        return id != null && id.equals(user.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : super.hashCode();
+    }
 }
