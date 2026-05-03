@@ -19,7 +19,12 @@ public class User {
     // "STUDENT" or "SENIOR"
     private String role;
 
+    private Integer reputation = 0;
+
     public User() {}
+
+    public Integer getReputation() { return reputation; }
+    public void setReputation(Integer reputation) { this.reputation = reputation; }
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }

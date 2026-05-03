@@ -32,10 +32,39 @@ public class Doubt {
     
     private Date createdAt;
 
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "doubt_tags", joinColumns = @JoinColumn(name = "doubt_id"))
+    @Column(name = "tag")
+    private java.util.Set<String> tags = new java.util.HashSet<>();
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "doubt_upvotes",
+            joinColumns = @JoinColumn(name = "doubt_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id"))
+    private java.util.Set<User> upvoters = new java.util.HashSet<>();
+
+    private Long duplicateOfId;
+
+    @OneToMany(mappedBy = "doubt", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OrderBy("createdAt ASC")
+    private java.util.List<Comment> comments = new java.util.ArrayList<>();
+
     public Doubt() {
         this.createdAt = new Date();
         this.status = "PENDING";
     }
+
+    public java.util.Set<String> getTags() { return tags; }
+    public void setTags(java.util.Set<String> tags) { this.tags = tags; }
+
+    public java.util.Set<User> getUpvoters() { return upvoters; }
+    public void setUpvoters(java.util.Set<User> upvoters) { this.upvoters = upvoters; }
+
+    public Long getDuplicateOfId() { return duplicateOfId; }
+    public void setDuplicateOfId(Long duplicateOfId) { this.duplicateOfId = duplicateOfId; }
+
+    public java.util.List<Comment> getComments() { return comments; }
+    public void setComments(java.util.List<Comment> comments) { this.comments = comments; }
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
